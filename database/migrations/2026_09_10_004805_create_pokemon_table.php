@@ -14,7 +14,23 @@ return new class extends Migration
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('tipo');
+            $table->text('descricao');
+            $table->string('slug');
+            $table->string('imagem');
+
+            $table->unsignedBigInteger('id_treinador');
+            $table->foreign('id_treinador')
+                ->references('id')
+                ->on('treinador')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('id_categoria');
+            $table->foreign('id_categoria')
+                ->references('id')
+                ->on('categoria')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
