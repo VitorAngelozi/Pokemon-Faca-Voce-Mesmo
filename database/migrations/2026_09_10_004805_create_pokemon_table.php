@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->text('descricao');
             $table->string('slug');
-            $table->string('imagem');
+            $table->string('imagem')->nullable();
 
             $table->unsignedBigInteger('id_treinador');
             $table->foreign('id_treinador')
