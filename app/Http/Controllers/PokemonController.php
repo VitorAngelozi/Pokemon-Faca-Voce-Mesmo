@@ -11,7 +11,8 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        return 'pokemon index!';
+        $pokemons = \App\Models\Pokemon::all();
+        return dd($pokemons);
     }
 
     /**
